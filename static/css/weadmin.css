@@ -515,3 +515,73 @@ table td {
   top: -2px;
   left: 10px;
 }
+.weadmin-shortcut {
+  height: 185px!important;
+  background-color: #fff;
+}
+.weadmin-shortcut .layui-carousel,
+.weadmin-shortcut > [carousel-item] > * {
+  background-color: #fff;
+}
+.weadmin-shortcut .layui-col-space10 {
+  margin: 0;
+}
+.weadmin-shortcut li {
+  text-align: center;
+}
+.weadmin-shortcut li a {
+  display: block;
+}
+.weadmin-shortcut li .layui-icon {
+  display: inline-block;
+  width: 100%;
+  height: 120px;
+  line-height: 120px;
+  text-align: center;
+  border-radius: 2px;
+  font-size: 30px;
+  background-color: #F8F8F8;
+  color: #333;
+  transition: all .3s;
+  -webkit-transition: all .3s;
+}
+.weadmin-shortcut li:hover .layui-icon {
+  background-color: #f2f2f2;
+}
+.weadmin-shortcut li cite {
+  position: relative;
+  top: 2px;
+  display: block;
+  color: #333333;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 16px;
+}
+.weadmin-shortcut li p {
+  font-size: 12px;
+  line-height: 16px;
+  color: #666666;
+  margin-top: 5px;
+}
+.weadmin-shortcut .layui-carousel-ind {
+  position: absolute;
+  top: -41px;
+  text-align: right;
+}
+.weadmin-shortcut .layui-carousel-ind ul {
+  background: 0 0;
+}
+.weadmin-shortcut .layui-carousel-ind ul li {
+  background-color: #e2e2e2;
+}
+.weadmin-shortcut .layui-carousel-ind ul li:hover {
+  background-color: #c2c2c2;
+}
+.weadmin-shortcut .layui-carousel-ind ul li.layui-this {
+  background-color: #999;
+}
+.weadmin-text p {
+  margin-bottom: 10px;
+  text-indent: 2em;
+}

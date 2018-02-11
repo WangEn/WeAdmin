@@ -170,11 +170,11 @@ layui.define(['jquery', 'form', 'layer', 'element'], function(exports) {
 			if(li > 0) {
 				//tab已经存在，直接切换到指定Tab项
 				//console.log(">0");
-				element.tabChange('xbs_tab', id); //切换到：用户管理
+				element.tabChange('wenav_tab', id); //切换到：用户管理
 			} else {
 				//该id不存在，新增一个Tab项
 				//console.log("<0");
-				element.tabAdd('xbs_tab', {
+				element.tabAdd('wenav_tab', {
 					title: title,
 					content: '<iframe tab-id="' + id + '" frameborder="0" src="' + url + '" scrolling="yes" class="weIframe"></iframe>',
 					id: id
@@ -188,17 +188,17 @@ layui.define(['jquery', 'form', 'layer', 'element'], function(exports) {
 
 		},
 		tabDelete: function(id) {
-			element.tabDelete("xbs_tab", id); //删除
+			element.tabDelete("wenav_tab", id); //删除
 			removeStorageMenu(id);
 
 		},
 		tabChange: function(id) {
 			//切换到指定Tab项
-			element.tabChange('xbs_tab', id); 
+			element.tabChange('wenav_tab', id); 
 		},
 		tabDeleteAll: function(ids) { //删除所有
 			$.each(ids, function(i, item) {
-				element.tabDelete("xbs_tab", item);
+				element.tabDelete("wenav_tab", item);
 			})
 			localStorage.removeItem('menu');
 		}
@@ -360,14 +360,14 @@ layui.define(['jquery', 'form', 'layer', 'element'], function(exports) {
 	 *@todo tab切换监听
 	 * tab切换监听不能写字初始化加载$(function())方法内，否则不执行
 	*/
-	element.on('tab(xbs_tab)', function(data){
+	element.on('tab(wenav_tab)', function(data){
 		//console.log(this); //当前Tab标题所在的原始DOM元素
 		setStorageCurMenu();
 	});
 	/*
 	 * @todo 监听layui Tab项的关闭按钮，改变本地存储
 	 */	
-	element.on('tabDelete(xbs_tab)', function(data) {
+	element.on('tabDelete(wenav_tab)', function(data) {
 		var layId = $(this).parent('li').attr('lay-id');
 		//console.log(layId);
 		removeStorageMenu(layId);

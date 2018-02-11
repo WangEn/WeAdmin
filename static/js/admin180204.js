@@ -14,10 +14,10 @@ $(function() {
 			//console.log(li);
 			if(li > 0){
 			//tab已经存在，直接切换到指定Tab项
-				element.tabChange('xbs_tab', id); //切换到：用户管理
+				element.tabChange('wenav_tab', id); //切换到：用户管理
 			}else{
 			//该id不存在，新增一个Tab项
-				element.tabAdd('xbs_tab', {
+				element.tabAdd('wenav_tab', {
 					title: title,
 					content: '<iframe tab-id="' + id + '" frameborder="0" src="' + url + '" scrolling="yes" class="weIframe"></iframe>',
 					id: id
@@ -26,13 +26,13 @@ $(function() {
 		},
 		tabDelete: function(othis) {
 			//删除指定Tab项
-			//element.tabDelete('xbs_tab', '44'); //删除：“商品管理”
+			//element.tabDelete('wenav_tab', '44'); //删除：“商品管理”
 
 			othis.addClass('layui-btn-disabled');
 		},
 		tabChange: function(id) {
 			//切换到指定Tab项
-			element.tabChange('xbs_tab', id); //切换到：用户管理
+			element.tabChange('wenav_tab', id); //切换到：用户管理
 		}
 	};
 

@@ -3,20 +3,15 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title>后台管理-WeAdmin 1.0</title>
+		<title>后台管理-WeAdmin Frame型后台管理系统-WeAdmin 1.0</title>
 		<meta name="renderer" content="webkit|ie-comp|ie-stand">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<!--<meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />-->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
-
 		<meta http-equiv="Cache-Control" content="no-siteapp" />
-
 		<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
 		<link rel="stylesheet" href="./static/css/font.css">
 		<link rel="stylesheet" href="./static/css/weadmin.css">
-		<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 		<script type="text/javascript" src="./lib/layui/layui.js" charset="utf-8"></script>
-		<!--<script type="text/javascript" src="./static/js/admin.js" charset="utf-8"></script>-->
 
 	</head>
 
@@ -55,7 +50,7 @@
 							<a onclick="WeAdminShow('个人信息','http://www.baidu.com')">个人信息</a>
 						</dd>
 						<dd>
-							<a onclick="WeAdminShow('切换帐号','http://www.baidu.com')">切换帐号</a>
+							<a onclick="WeAdminShow('切换帐号','./login.html')">切换帐号</a>
 						</dd>
 						<dd>
 							<a class="loginout" href="login.html">退出</a>
@@ -263,7 +258,7 @@
 		<!-- 左侧菜单结束 -->
 		<!-- 右侧主体开始 -->
 		<div class="page-content">
-			<div class="layui-tab tab" lay-filter="xbs_tab" id="WeTabTip" lay-allowclose="true">
+			<div class="layui-tab tab" lay-filter="wenav_tab" id="WeTabTip" lay-allowclose="true">
 				<ul class="layui-tab-title">
 					<li>我的桌面</li>
 				</ul>
@@ -295,19 +290,22 @@
 			  base: './static/js/'
 			  ,version: '101100'
 			}).use('admin');
-			$(function(){
-				var login = JSON.parse(localStorage.getItem("login"));
-				if(login){
-					if(login=0){
+			layui.use(['jquery','admin'], function(){
+				var $ = layui.jquery;
+				$(function(){
+					var login = JSON.parse(localStorage.getItem("login"));
+					if(login){
+						if(login=0){
+							window.location.href='./login.html';
+							return false;
+						}else{
+							return false;
+						}
+					}else{
 						window.location.href='./login.html';
 						return false;
-					}else{
-						return false;
 					}
-				}else{
-					window.location.href='./login.html';
-					return false;
-				}
+				});
 			});
 
 		</script>

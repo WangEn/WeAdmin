@@ -2,14 +2,14 @@ layui.extend({
 	admin: '{/}../../static/js/admin'
 });
 
-layui.use(['table', 'admin'], function() {
+layui.use(['table', 'jquery', 'admin'], function() {
 	var table = layui.table,
-		admin = layui.admin,
-		form = layui.form;
+		$ = layui.jquery,
+		admin = layui.admin;
 
-	var tableIns = table.render({
-		elem: '#articleList'
-		,cellMinWidth: 80,
+	table.render({
+		elem: '#articleList',
+		cellMinWidth: 80,
 		cols: [
 			[{
 				type: 'checkbox'
@@ -39,78 +39,93 @@ layui.use(['table', 'admin'], function() {
 			"date": "2018-02-03",
 			"category": "官方动态",
 			"sort": "1",
-			"recommend":"checked",
-			"top":"checked"
+			"recommend": "checked",
+			"top": "checked"
 		}, {
 			"id": "2",
 			"title": "WeAdmin的测试数据一二三四五六七",
 			"date": "2018-02-03",
 			"category": "新闻资讯",
 			"sort": "1",
-			"recommend":"",
-			"top":"checked"
+			"recommend": "",
+			"top": "checked"
 		}],
 		event: true,
 		page: true
 	});
-	 var $ = layui.$, 
-	 active = {
-	    getCheckData: function(){ //获取选中数据
-	      var checkStatus = table.checkStatus('articleList')
-	      ,data = checkStatus.data;
-	      //console.log(data);
-	      //layer.alert(JSON.stringify(data));
-	      if(data.length>0){
-	      	layer.confirm('确认要删除吗？' + JSON.stringify(data), function(index) {				
-				layer.msg('删除成功', {
-					icon: 1
+	var active = {
+		getCheckData: function() { //获取选中数据
+			var checkStatus = table.checkStatus('articleList'),
+				data = checkStatus.data;
+			//console.log(data);
+			//layer.alert(JSON.stringify(data));
+			if(data.length > 0) {
+				layer.confirm('确认要删除吗？' + JSON.stringify(data), function(index) {
+					layer.msg('删除成功', {
+						icon: 1
+					});
+					//找到所有被选中的，发异步进行删除
+					$(".layui-table-body .layui-form-checked").parents('tr').remove();
 				});
-				//找到所有被选中的，发异步进行删除
-				$(".layui-table-body .layui-form-checked").parents('tr').remove();
+			} else {
+				layer.msg("请先选择需要删除的文章！");
+			}
+
+		},
+		Recommend: function() {
+			var checkStatus = table.checkStatus('articleList'),
+				data = checkStatus.data;
+			if(data.length > 0) {
+				layer.msg("您点击了推荐操作");
+				for(var i = 0; i < data.length; i++) {
+					console.log("a:" + data[i].recommend);
+					data[i].recommend = "checked";
+					console.log("aa:" + data[i].recommend);
+					form.render();
+				}
+
+			} else {
+				console.log("b");
+				layer.msg("请先选择");
+			}
+
+			//$(".layui-table-body .layui-form-checked").parents('tr').children().children('input[name="zzz"]').attr("checked","checked");
+		},
+		Top: function() {
+			layer.msg("您点击了置顶操作");
+		},
+		Review: function() {
+			layer.msg("您点击了审核操作");
+		}
+
+	};
+
+	$('.demoTable .layui-btn').on('click', function() {
+		var type = $(this).data('type');
+		active[type] ? active[type].call(this) : '';
+	});
+
+	/*用户-删除*/
+	window.member_del = function(obj, id) {
+		layer.confirm('确认要删除吗？', function(index) {
+			//发异步删除数据
+			$(obj).parents("tr").remove();
+			layer.msg('已删除!', {
+				icon: 1,
+				time: 1000
 			});
-	      }else{
-	      	layer.msg("请先选择需要删除的文章！");
-	      }
-				
-	    },
-	    Recommend: function(){
-	    	var checkStatus = table.checkStatus('articleList')
-	      ,data = checkStatus.data;
-	      if(data.length>0){
-	      	console.log("a");
-	      	for(var i=0;i<data.length;i++){
-	      		console.log("a:"+data[i].recommend);
-	      		data[i].recommend = "checked";
-	      		console.log("aa:"+data[i].recommend);
-	      		form.render();
-	      	}
-	      	//tableIns.reload();
-
-	      	
-	      }else{
-	      		console.log("b");
-	      	layer.msg("请先选择");
-	      }
-	      
-	        //$(".layui-table-body .layui-form-checked").parents('tr').children().children('input[name="zzz"]').attr("checked","checked");
-	    }
-
-	  };
-	  
-	  $('.demoTable .layui-btn').on('click', function(){
-	    var type = $(this).data('type');
-	    active[type] ? active[type].call(this) : '';
-	  });
-	  
+		});
+	}
 
 });
-	  function delAll(argument) {
-			var data = tableCheck.getData();
-			layer.confirm('确认要删除吗？' + data, function(index) {
-				//捉到所有被选中的，发异步进行删除
-				layer.msg('删除成功', {
-					icon: 1
-				});
-				$(".layui-form-checked").not('.header').parents('tr').remove();
-			});
-		}
+
+function delAll(argument) {
+	var data = tableCheck.getData();
+	layer.confirm('确认要删除吗？' + data, function(index) {
+		//捉到所有被选中的，发异步进行删除
+		layer.msg('删除成功', {
+			icon: 1
+		});
+		$(".layui-form-checked").not('.header').parents('tr').remove();
+	});
+}
