@@ -564,6 +564,10 @@ table td {
   color: #666666;
   margin-top: 5px;
 }
+.weadmin-shortcut li p span {
+  text-align: left;
+  display: inline-block;
+}
 .weadmin-shortcut .layui-carousel-ind {
   position: absolute;
   top: -41px;
