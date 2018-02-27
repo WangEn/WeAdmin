@@ -1,4 +1,7 @@
-#WeAdmin
+# WeAdmin
+
+基于Layui的后台管理系统前端模板 http://lovetime.gitee.io/weadmin/
+
 ## 更新记录
 2018-2-5
 Tab菜单栏鼠标右键刷新、关闭功能
