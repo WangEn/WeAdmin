@@ -19,7 +19,7 @@ WeAdmin基于LayUI的轻量级前端后台管理框架，简单免费，兼容�
 官网： http://echarts.baidu.com/ 
 
 ## 借鉴参考
-WeAdmin借鉴了LayUI相关案例：WeAdmin、LayuiCMS等相关内容
+WeAdmin借鉴了LayUI相关案例：Layuicms/vip-admin/x-admin/jqadmin等等，及AdminLte/H-ui admin的demo
 
 http://blog.csdn.net/sj0613xz/article/details/79021890
 
