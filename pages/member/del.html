@@ -49,7 +49,7 @@
 				</form>
 			</div>
 			<div class="weadmin-block">
-				<button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量恢复</button>
+				<button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon">&#xe640;</i>批量恢复</button>
 				<span class="fr" style="line-height:40px">共有数据：88 条</span>
 			</div>
 			<table class="layui-table">
@@ -161,9 +161,9 @@
 							time: 1000
 						});
 					});
-				}
+				};
 	
-				function delAll(argument) {
+				window.delAll = function(argument) {
 					var data = tableCheck.getData();
 					layer.confirm('确认要恢复吗？' + data, function(index) {
 						//捉到所有被选中的，发异步进行删除
