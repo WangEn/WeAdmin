@@ -156,7 +156,7 @@
 				});
 				
 				/*用户-停用*/
-				function member_stop(obj, id) {
+				window.member_stop = function(obj, id) {
 					var confirmTip;
 					if($(obj).attr('title') == '启用'){
 						confirmTip = '确认要停用吗？';
@@ -187,7 +187,7 @@
 				}
 	
 				/*用户-删除*/
-				function member_del(obj, id) {
+				window.member_del = function(obj, id) {
 					layer.confirm('确认要删除吗？', function(index) {
 						//发异步删除数据
 						$(obj).parents("tr").remove();
@@ -198,7 +198,7 @@
 					});
 				}
 	
-				function delAll(argument) {
+				window.delAll= function(argument) {
 					var data = tableCheck.getData();
 					layer.confirm('确认要删除吗？' + data, function(index) {
 						//捉到所有被选中的，发异步进行删除
