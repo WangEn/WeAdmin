@@ -1,7 +1,8 @@
 /*
  * @Author: https://github.com/WangEn
+ * @Author: https://gitee.com/lovetime/
  * @Date:   2018-01-01
- * @lastModify 2018-2-5 16:29:37
+ * @lastModify 2018-3-27 15:00:35
  * +----------------------------------------------------------------------
  * | Weadmin [ 后台管理模板 ]
  * | 基于Layui http://www.layui.com/
@@ -80,9 +81,13 @@ layui.define(['jquery', 'form', 'layer', 'element'], function(exports) {
 			} else {
 				$(".layui-tab-title li").eq(0).addClass('layui-this'); //未生效
 				$('.layui-tab-content iframe').eq(0).parent().addClass('layui-show');
-
 			}
 		}, 100);
+		//点击tab标题时，触发reloadTab函数
+		$('#tabName').on('click','li',function(){
+			reloadTab(this);
+		});
+
 		//初始化加载结束
 	});
 
@@ -454,7 +459,24 @@ layui.define(['jquery', 'form', 'layer', 'element'], function(exports) {
 		login = 1;
 		localStorage.setItem('login', login);
 	});
-
+	
+	/*
+	 *Tab加载后刷新
+	 * 判断是刷新后第一次点击时，刷新frame子页面
+	 * */
+	window.reloadTab = function(which){
+		var len = $('.layui-tab-title').children('li').length;
+		var layId = $(which).attr('lay-id');
+		var i=1;	   
+		if($(which).attr('data-bit')){
+			return false; //判断页面打开后第一次点击，执行刷新
+		}else{
+			$(which).attr('data-bit',i);  	
+			var frame = $('.weIframe[tab-id='+layId+']');
+			frame.attr('src', frame.attr('src'));
+			console.log("reload:"+$(which).attr('data-bit'));
+		} 
+    }
 	/**
 	 *@todo Frame内部的按钮点击打开其他frame的tab
 	 */
