@@ -7,10 +7,8 @@
 		<meta name="renderer" content="webkit">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
-		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 		<link rel="stylesheet" href="../../static/css/font.css">
 		<link rel="stylesheet" href="../../static/css/weadmin.css">
-		<script src="../../lib/layui/layui.js" charset="utf-8"></script>
 		<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
 		<!--[if lt IE 9]>
 	      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
@@ -81,6 +79,7 @@
 				</div>
 			</form>
 		</div>
+		<script src="../../lib/layui/layui.js" charset="utf-8"></script>
 		<script type="text/javascript">
 			layui.extend({
 				admin: '{/}../../static/js/admin'
@@ -89,21 +88,6 @@
 				var form = layui.form,
 					admin = layui.admin,
 					layer = layui.layer;
-
-				//自定义验证规则
-				form.verify({
-					nikename: function(value) {
-						if(value.length < 5) {
-							return '昵称至少得5个字符啊';
-						}
-					},
-					pass: [/(.+){6,12}$/, '密码必须6到12位'],
-					repass: function(value) {
-						if($('#L_pass').val() != $('#L_repass').val()) {
-							return '两次密码不一致';
-						}
-					}
-				});
 
 				//监听提交
 				form.on('submit(add)', function(data) {

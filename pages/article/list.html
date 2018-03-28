@@ -10,16 +10,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
 		<link rel="stylesheet" href="../../static/css/font.css">
 		<link rel="stylesheet" href="../../static/css/weadmin.css">
-		<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-		<script src="../../lib/layui/layui.js" charset="utf-8"></script>
-		<script src="list.js" type="text/javascript" charset="utf-8"></script>
-		
-		<!--<script type="text/javascript" src="../../static/js/admin.js"></script>-->
 		<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
 		<!--[if lt IE 9]>
-      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
-      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+	      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+	      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
 		<style type="text/css">
 			.layui-form-switch {
 				width: 55px;
@@ -87,8 +82,10 @@
 				<input type="checkbox" name="show" lay-skin="switch" lay-text="已置顶|未置顶" {{d.top}}>
 			</script>
 			<script type="text/html" id="reviewTpl">
-				<input type="checkbox" name="lock" value="10002" title="审核" lay-filter="lockDemo">
+			  <!-- 这里的 checked 的状态只是演示 -->
+			  <input type="checkbox" name="lock" value="{{d.id}}" title="锁定" lay-filter="lockDemo" {{ d.id == 1 ? 'checked' : '' }}>
 			</script>
+
 			<script type="text/html" id="operateTpl">
 				<a title="编辑" onclick="WeAdminEdit('编辑','./edit.html', 2, 600, 400)" href="javascript:;">
 					<i class="layui-icon">&#xe642;</i>
@@ -100,6 +97,8 @@
 					<i class="layui-icon">&#xe640;</i>
 				</a>
 			</script>
+			<script src="../../lib/layui/layui.js" charset="utf-8"></script>
+			<script src="list.js" type="text/javascript" charset="utf-8"></script>
 
 		</div>
 	</body>

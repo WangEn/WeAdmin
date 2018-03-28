@@ -2,9 +2,10 @@ layui.extend({
 	admin: '{/}../../static/js/admin'
 });
 
-layui.use(['table', 'jquery', 'admin'], function() {
+layui.use(['table', 'jquery','form', 'admin'], function() {
 	var table = layui.table,
 		$ = layui.jquery,
+		form = layui.form,
 		admin = layui.admin;
 
 	table.render({
@@ -53,6 +54,14 @@ layui.use(['table', 'jquery', 'admin'], function() {
 		event: true,
 		page: true
 	});
+	/*
+	 *数据表格中form表单元素是动态插入,所以需要更新渲染下
+	 * http://www.layui.com/doc/modules/form.html#render
+	 * */
+	$(function(){
+		form.render();
+	});
+	
 	var active = {
 		getCheckData: function() { //获取选中数据
 			var checkStatus = table.checkStatus('articleList'),
