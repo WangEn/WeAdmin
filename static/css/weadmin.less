@@ -654,3 +654,35 @@ table td {
         text-indent: 2em;
     }
 }
+.layui-card-header.layui-elem-quote{
+    line-height: 22px;
+    height: 22px;
+    padding: 15px;
+}
+.weadmin-notice{
+    height: 60px!important;
+    a{
+        display:block;
+        text-align:center;
+        line-height: 60px;
+    }
+    //切换指示器
+    .layui-carousel-ind{
+        position:absolute;
+        top:-56px;
+        text-align:right;
+        ul{
+            background:0 0;
+            li{
+                background-color:#e2e2e2;
+                &:hover{
+                    background-color:#c2c2c2;
+                }
+                &.layui-this{
+                    background-color:#999;
+                }
+            }
+        }
+    }
+}
+

@@ -589,3 +589,33 @@ table td {
   margin-bottom: 10px;
   text-indent: 2em;
 }
+.layui-card-header.layui-elem-quote {
+  line-height: 22px;
+  height: 22px;
+  padding: 15px;
+}
+.weadmin-notice {
+  height: 60px!important;
+}
+.weadmin-notice a {
+  display: block;
+  text-align: center;
+  line-height: 60px;
+}
+.weadmin-notice .layui-carousel-ind {
+  position: absolute;
+  top: -56px;
+  text-align: right;
+}
+.weadmin-notice .layui-carousel-ind ul {
+  background: 0 0;
+}
+.weadmin-notice .layui-carousel-ind ul li {
+  background-color: #e2e2e2;
+}
+.weadmin-notice .layui-carousel-ind ul li:hover {
+  background-color: #c2c2c2;
+}
+.weadmin-notice .layui-carousel-ind ul li.layui-this {
+  background-color: #999;
+}

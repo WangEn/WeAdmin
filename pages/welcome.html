@@ -9,7 +9,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
 		<link rel="stylesheet" href="../static/css/font.css">
 		<link rel="stylesheet" href="../static/css/weadmin.css">
-		<script type="text/javascript" src="../lib/layui/layui.js" charset="utf-8"></script>
+
 
 	</head>
 
@@ -116,8 +116,39 @@
 			</div>
 			<div class="layui-col-lg12 layui-collapse" style="border: none;">
 				<div class="layui-col-lg6 layui-col-md12">
+						
+					
 					<!--统计信息展示-->
 					<fieldset class="layui-elem-field" style="padding: 5px;">
+						<!--WeAdmin公告-->
+						<div class="layui-card">
+							<div class="layui-card-header layui-elem-quote">WeAdmin公告</div>
+							<div class="layui-card-body">
+								<div class="layui-carousel weadmin-notice" lay-filter="notice" lay-indicator="inside" lay-arrow="none" style="width: 100%; height: 280px;">
+									<div carousel-item="">
+										<div class="">
+											<a href="https://gitee.com/lovetime/WeAdmin" target="_blank" class="layui-bg-red">2018年3月28日 WeAdmin小版本更新</a>
+										</div>
+										<div class="">
+											<a href="http://www.layui.com/admin/" target="_blank" class="layui-bg-blue">首款 layui 官方后台模板系统正式发布</a>
+										</div>
+										<div class="">
+											<a href="http://fly.layui.com/jie/24231/" target="_blank" class="layui-bg-green">Layui 官方发布 layuiAdmin iframe 多标签页版本</a>
+										</div>
+
+									</div>
+									<div class="layui-carousel-ind">
+										<ul>
+											<li class="layui-this"></li>
+											<li></li>
+										</ul>
+									</div>
+									<!--<button class="layui-icon layui-carousel-arrow" lay-type="sub"></button>
+									<button class="layui-icon layui-carousel-arrow" lay-type="add"></button>-->
+								</div>
+
+							</div>
+						</div>
 						<!--<legend>信息统计</legend>-->
 						<blockquote class="layui-elem-quote font16">信息统计</blockquote>
 						<div class="">
@@ -199,24 +230,16 @@
 										<td>80</td>
 									</tr>
 									<tr>
-										<td>服务器IIS版本 </td>
-										<td>Microsoft-IIS/6.0</td>
-									</tr>
-									<tr>
 										<td>本文件所在文件夹 </td>
 										<td>D:\Web\WeAdmin\</td>
 									</tr>
 									<tr>
-										<td>服务器当前时间 </td>
-										<td>2018-01-01 13:14:00</td>
+										<td>WeAdmin时间 </td>
+										<td id="firstTime">2018-01-01 13:14:00</td>
 									</tr>
 									<tr>
-										<td>服务器IE版本 </td>
-										<td>6.0000</td>
-									</tr>
-									<tr>
-										<td>服务器上次启动到现在已运行 </td>
-										<td>7210分钟</td>
+										<td>上次更新时间 </td>
+										<td id="lastTime">7210分钟</td>
 									</tr>
 								</tbody>
 							</table>
@@ -227,7 +250,7 @@
 					<fieldset class="layui-elem-field we-changelog" style="padding: 5px;">
 						<!--更新日志-->
 						<blockquote class="layui-elem-quote font16">发展历程&amp;更新日志</blockquote>
-						<ul class="layui-timeline">
+						<ul class="layui-timeline" style="height: 729px; overflow-y: auto;">
 							<!--<li class="layui-timeline-item">
 								<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
 								<div class="layui-timeline-content layui-text">
@@ -235,11 +258,25 @@
 										<h3>日志初始化模板</h3>
 										<span class="layui-badge-rim">2018-01-01</span>
 									</div>
-									<p>
-
-									</p>
+									<p></p>
 								</div>
 							</li>-->
+							<li class="layui-timeline-item">
+								<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+								<div class="layui-timeline-content layui-text">
+									<div class="layui-timeline-title">
+										<h3>WeAdmin小版本修复</h3>
+										<span class="layui-badge-rim">2018-03-28</span>
+									</div>
+									<ul>
+										<li>增加了文章分类添加、编辑页面</li>
+										<li>增加公用eleDel.js,个别通用页面独立加载</li>
+										<li>修复右键加载刷新后个别图表、表格页面样式错乱问题（判断加载后首次点击刷新frame子页面）</li>
+										<li>优化数据表格中表单元素点击问题</li>
+										<li>优化修复部分示例js报错</li>
+									</ul>
+								</div>
+							</li>
 							<li class="layui-timeline-item">
 								<i class="layui-icon layui-timeline-axis" style="color: #FF5722;">&#xe756;</i>
 								<div class="layui-timeline-content layui-text">
@@ -249,9 +286,7 @@
 									</div>
 									<blockquote class="layui-elem-quote">使用
 										<a href="http://www.layui.com/doc/base/modules.html#extend" target="_blank">layui扩展模块</a>的方法重写了admin.js,里面包含了整个We-admin后台框架中常用的方法。</blockquote>
-
 									<ul>
-
 										<li>增加了Tab菜单栏鼠标右键刷新、关闭方法</li>
 										<li>增加了Tab菜单栏已打开菜单本地存储记录，刷新前已打开菜单不消失</li>
 										<li>增加了Tab切换监听和删除监听事件</li>
@@ -300,26 +335,25 @@
 							</li>
 						</ul>
 					</fieldset>
-
 				</div>
 			</div>
 			<div style="clear: both;overflow: hidden; margin-top: 10px;">
 				<blockquote class="layui-elem-quote">感谢Layui,百度Echarts,jquery,及
 					<a href="http://fly.layui.com/case/2018/" target="_blank">LayUI相关案例</a>
 				</blockquote>
-
 			</div>
-
 		</div>
 	</body>
+	<script type="text/javascript" src="../lib/layui/layui.js" charset="utf-8"></script>
 	<script type="text/javascript">
 		layui.extend({
 			admin: '{/}../static/js/admin',
 		});
-		layui.use(['jquery', 'element', 'admin', 'carousel'], function() {
+		layui.use(['jquery', 'element','util', 'admin', 'carousel'], function() {
 			var element = layui.element,
 				$ = layui.jquery,
 				carousel = layui.carousel,
+				util = layui.util,
 				admin = layui.admin;
 			//建造实例
 			carousel.render({
@@ -329,6 +363,24 @@
 				,trigger: 'hover'
 				,autoplay:false
 			});
+			
+			carousel.render({
+				elem: '.weadmin-notice'
+				,width: '100%' //设置容器宽度				
+				,arrow: 'none' //始终显示箭头	
+				,trigger: 'hover'
+				,autoplay:true
+			});
+			
+			$(function(){
+				setTimeAgo(2018,0,1,13,14,0,'#firstTime');
+				setTimeAgo(2018,2,28,16,0,0,'#lastTime');
+			});
+			function setTimeAgo(y, M, d, H, m, s,id){
+			    var str = util.timeAgo(new Date(y, M||0, d||1, H||0, m||0, s||0));
+			    $(id).html(str);
+			    console.log(str);
+			 };
 		});
 	</script>
 

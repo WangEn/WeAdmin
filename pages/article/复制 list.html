@@ -15,20 +15,22 @@
 		<!--<script type="text/javascript" src="../../static/js/admin.js"></script>-->
 		<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
 		<!--[if lt IE 9]>
-      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
-      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <style type="text/css">
-    	.layui-form-switch{
-    		width: 55px;
-    	}
-    	.layui-form-switch em{
-    		width: 40px;
-    	}
-    	.layui-form-onswitch i{
-    		left: 45px;
-    	}
-    </style>
+	      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+	      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+		<style type="text/css">
+			.layui-form-switch {
+				width: 55px;
+			}
+			
+			.layui-form-switch em {
+				width: 40px;
+			}
+			
+			.layui-form-onswitch i {
+				left: 45px;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -172,7 +174,7 @@
 			layui.extend({
 				admin: '{/}../../static/js/admin'
 			});
-			layui.use(['laydate','table', 'form','layer','admin'], function() {
+			layui.use(['laydate', 'table', 'form', 'layer', 'admin'], function() {
 				var laydate = layui.laydate,
 					table = layui.table,
 					layer = layui.layer,
@@ -190,19 +192,19 @@
 				});
 
 				form.render();
-				
+
 				//监听开关操作
-				  form.on('switch(tuijian)', function(obj){
-				    layer.tips(this.value + ' ' + this.name + '：'+ obj.elem.checked, obj.othis);
-				  });
-				  form.on('switch(zhiding)', function(obj){
-				    layer.tips(this.value + ' ' + this.name + '：'+ obj.elem.checked, obj.othis);
-				  });
-				  
-				  //监听锁定操作
-				  form.on('checkbox(lockDemo)', function(obj){
-				    layer.tips(this.value + ' ' + this.name + '：'+ obj.elem.checked, obj.othis);
-				  });
+				form.on('switch(tuijian)', function(obj) {
+					layer.tips(this.value + ' ' + this.name + '：' + obj.elem.checked, obj.othis);
+				});
+				form.on('switch(zhiding)', function(obj) {
+					layer.tips(this.value + ' ' + this.name + '：' + obj.elem.checked, obj.othis);
+				});
+
+				//监听锁定操作
+				form.on('checkbox(lockDemo)', function(obj) {
+					layer.tips(this.value + ' ' + this.name + '：' + obj.elem.checked, obj.othis);
+				});
 			});
 			/*用户-停用*/
 			function member_stop(obj, id) {
