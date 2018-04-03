@@ -38,7 +38,7 @@ Layui发版以来一直受到不少猿的推崇，作为其中的小白，我也
 ## 组件说明
 
 ### Layui
-目前基于Layui 2.2.5版本
+目前基于Layui 2.2.6版本
 官网： http://www.layui.com/
 
 ### echarts
@@ -46,7 +46,7 @@ Layui发版以来一直受到不少猿的推崇，作为其中的小白，我也
 官网： http://echarts.baidu.com/ 
 
 ## 借鉴参考
-WeAdmin借鉴了LayUI相关案例：Layuicms/vip-admin/x-admin/jqadmin等等，及AdminLte/H-ui admin的demo
+WeAdmin借鉴了Layui相关案例：Layuicms/vip-admin/x-admin/jqadmin等等，及AdminLte/H-ui admin的demo
 
 http://blog.csdn.net/sj0613xz/article/details/79021890
 
