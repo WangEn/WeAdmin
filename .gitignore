@@ -1,0 +1,5 @@
+﻿/.project
+.idea/
+dist/
+node_modules/
+build/
