@@ -366,6 +366,7 @@ body {
 .left-nav #nav li .nav_right {
   float: right;
   font-size: 16px;
+  transform: rotate(180deg);
 }
 .left-nav #nav li a i {
   padding-right: 10px;
@@ -619,3 +620,4 @@ table td {
 .weadmin-notice .layui-carousel-ind ul li.layui-this {
   background-color: #999;
 }
+/*# sourceMappingURL=weadmin.css.map */
