@@ -94,7 +94,8 @@ layui.define(['jquery', 'form', 'layer', 'element'], function(exports) {
 	/*
 	 * @todo 左侧导航菜单的显示和隐藏
 	 */
-	$('.container .left_open i').click(function(event) {
+	// $('.container .left_open i').click(function(event) {
+	$('.container').on('click', '.left_open i', function(event) {
 		if($('.left-nav').css('left') == '0px') {
 			//此处左侧菜单是显示状态，点击隐藏
 			$('.left-nav').animate({
@@ -133,7 +134,7 @@ layui.define(['jquery', 'form', 'layer', 'element'], function(exports) {
 	 * @todo 左侧菜单事件
 	 * 如果有子级就展开，没有就打开frame
 	 */
-	$('.left-nav #nav li').click(function(event) {
+	$('body').on('click', '.left-nav #nav li', function(event) {
 		if($(this).children('.sub-menu').length) {
 			if($(this).hasClass('open')) {
 				$(this).removeClass('open');

@@ -16,21 +16,21 @@
 	    <![endif]-->
 		<style type="text/css">
 			/* 新增删除图标的样式 */
-			
+
 			.layui-form-label {
 				width: 100%;
 				text-align: left;
 			}
-			
+
 			.layui-form-label,
 			.layui-form-item .layui-input-inline {
 				margin-top: 10px;
 			}
-			
+
 			.yf-input-del .layui-input-inline .layui-input {
 				padding-right: 20px;
 			}
-			
+
 			.yf-input-del .layui-input-inline i.layui-icon {
 				position: absolute;
 				right: 2px;
@@ -44,16 +44,18 @@
 	<body>
 		<div class="weadmin-nav">
 			<span class="layui-breadcrumb">
-		        <a href="">首页</a>
-		        <a href="">会员管理</a>
-		        <a><cite>输入框操作</cite></a>
-		    </span>
-			<a class="layui-btn layui-btn-sm" style="line-height:1.6em;margin-top:3px;float:right" href="javascript:location.replace(location.href);" title="刷新">
-				<i class="layui-icon" style="line-height:30px">&#x1002;</i></a>
+				<a href="javascript:;">首页</a>
+				<a href="javascript:;">会员管理</a>
+				<a href="javascript:;"><cite>输入框操作</cite></a>
+			</span>
+			<a class="layui-btn layui-btn-sm" style="margin-top:3px;float:right" href="javascript:location.replace(location.href);"
+			 title="刷新">
+				<i class="layui-icon layui-icon-refresh"></i>
+			</a>
 		</div>
 		<div class="weadmin-body">
 			<div class="weadmin-block">
-				<button class="layui-btn" onclick="insertInput()"><i class="layui-icon"></i>新增1条教育背景</button>
+				<button class="layui-btn" onclick="insertInput()"><i class="layui-icon layui-icon-add-circle"></i>新增1条教育背景</button>
 				<span class="fr" style="line-height:40px">共有数据：<i class="numText">88</i> 条</span>
 			</div>
 			<div class="layui-form-item yf-input-del" id="edu_bg">
@@ -61,23 +63,27 @@
 
 				<div class="layui-input-inline" id="insertInput11">
 					<input type="text" name="edu_bg[5]" value="" autocomplete="off" placeholder="请输入" lay-verify="required" class="layui-input">
-					<i class="layui-icon deleteEduBg">&#x1006;</i>
+					<i class="layui-icon layui-icon-close deleteEduBg"></i>
 				</div>
 				<div class="layui-input-inline" id="insertInput11">
-					<input type="text" name="edu_bg[6]" value="" autocomplete="off" placeholder="点击删除图标删除该项输入" lay-verify="required" class="layui-input">
-					<i class="layui-icon deleteEduBg">&#x1006;</i>
+					<input type="text" name="edu_bg[6]" value="" autocomplete="off" placeholder="点击删除图标删除该项输入" lay-verify="required"
+					 class="layui-input">
+					<i class="layui-icon layui-icon-close deleteEduBg"></i>
 				</div>
 				<div class="layui-input-inline" id="insertInput11">
-					<input type="text" name="edu_bg[9]" value="" autocomplete="off" placeholder="点击新增增加新的输入框" lay-verify="required" class="layui-input">
-					<i class="layui-icon deleteEduBg">&#x1006;</i>
+					<input type="text" name="edu_bg[9]" value="" autocomplete="off" placeholder="点击新增增加新的输入框" lay-verify="required"
+					 class="layui-input">
+					<i class="layui-icon layui-icon-close deleteEduBg"></i>
 				</div>
 				<div class="layui-input-inline" id="insertInput11">
-					<input type="text" name="edu_bg[10]" value="" autocomplete="off" placeholder="name生成判断不重复" lay-verify="required" class="layui-input">
-					<i class="layui-icon deleteEduBg">&#x1006;</i>
+					<input type="text" name="edu_bg[10]" value="" autocomplete="off" placeholder="name生成判断不重复" lay-verify="required"
+					 class="layui-input">
+					<i class="layui-icon layui-icon-close deleteEduBg"></i>
 				</div>
 				<div class="layui-input-inline" id="insertInput11">
-					<input type="text" name="edu_bg[11]" value="" autocomplete="off" placeholder="避免随意删除新增后产生的name重复问题" lay-verify="required" class="layui-input">
-					<i class="layui-icon deleteEduBg">&#x1006;</i>
+					<input type="text" name="edu_bg[11]" value="" autocomplete="off" placeholder="避免随意删除新增后产生的name重复问题" lay-verify="required"
+					 class="layui-input">
+					<i class="layui-icon layui-icon-close deleteEduBg"></i>
 				</div>
 			</div>
 
@@ -110,9 +116,10 @@
 					//console.log(edu_bg[FieldCount1]);
 					var newCount1 = "edu_bg[" + FieldCount1 + "]";
 					//判断新生成的name值是否在已存在的数组中
-					if($.inArray(newCount1, arr1) === -1) {
+					if ($.inArray(newCount1, arr1) === -1) {
 						FieldCount1 = FieldCount1;
-						var input1 = "<input type='text' name='edu_bg[" + FieldCount1 + "]' value='' autocomplete='off' placeholder='请输入' lay-verify='required' class='layui-input'>"
+						var input1 = "<input type='text' name='edu_bg[" + FieldCount1 +
+							"]' value='' autocomplete='off' placeholder='请输入' lay-verify='required' class='layui-input'>"
 						var icon1 = "<i class='layui-icon deleteEduBg'>&#x1006;</i>";
 						div1.append(input1, icon1);
 						$("#edu_bg").append(div1); // 追加新元素
@@ -125,7 +132,7 @@
 
 				}
 				$("body").on("click", ".deleteEduBg", function(e) { //user click on remove text  
-					if(key1 > 1) {
+					if (key1 > 1) {
 						$(this).parent('div').remove(); //remove text box  
 						key1--; //decrement textbox  
 					} else {
