@@ -7,7 +7,7 @@
 2019-06-20 
 WeAdmin左侧菜单修改为动态获取方式
  - layui基础版本更新为V2.5.4
- - 使用[layui扩展模块](http://www.layui.com/doc/base/modules.html#extend)的方法新增方法menu,左侧菜单修改为本地JSON模拟动态获取
+ - 新增扩展方法menu,左侧菜单修改为本地JSON模拟动态获取
  - layui预计在V2.5.6版本为稳定版本(期待ing)
 
 2019-01-15 
