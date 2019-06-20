@@ -73,4 +73,5 @@ layui.use(['laydate', 'jquery', 'admin'], function() {
 			$(".layui-form-checked").not('.header').parents('tr').remove();
 		});
 	}
+	
 });

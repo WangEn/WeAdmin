@@ -22,6 +22,7 @@ layui.define(['jquery', 'form', 'layer', 'element'], function(exports) {
 	 * 打开或刷新后执行
 	 */
 	$(function() {
+		
 		/*
 		 * @todo 读取本地存储中记录的已打开的tab项
 		 * 刷新后，读取记录，打开原来已打开的tab项
@@ -446,7 +447,7 @@ layui.define(['jquery', 'form', 'layer', 'element'], function(exports) {
 		}
 		sessionStorage.setItem('menu', JSON.stringify(menu));
 	}
-
+	
 	/**
 	 *@todo 模拟登录
 	 * 判断初次登录时，跳转到登录页
