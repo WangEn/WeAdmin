@@ -2,7 +2,7 @@
  * @Author: https://github.com/WangEn
  * @Author: https://gitee.com/lovetime/
  * @Date:   2018-01-01
- * @lastModify 2018-3-27 15:00:35
+ * @lastModify 2019-06-20 17:23:47
  * +----------------------------------------------------------------------
  * | Weadmin [ 后台管理模板 ]
  * | 基于Layui http://www.layui.com/
@@ -449,8 +449,8 @@ layui.define(['jquery', 'form', 'layer', 'element'], function(exports) {
 	}
 	
 	/**
-	 *@todo 模拟登录
-	 * 判断初次登录时，跳转到登录页
+	 * 模拟登录
+	 * localStorage模拟登录及退出
 	 */
 	var login = localStorage.getItem('login');
 	$('.loginout').click(function() {
